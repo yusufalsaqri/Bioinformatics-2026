@@ -1,1 +1,10 @@
-
+sed '/zoo/I d' pandas.tsv > panda_zoos.txt
+awk -F $'\t' 'BEGIN{OFS="\t"} {print $1,$2,$3}' pandas.tsv | sort -k3,3 > sorted_pandas.txt
+awk -F $'\t' 'NR>1 {print $5}' pandas.tsv | sort > panda_zoos_A2Z.txt
+sed -E 's/\bfemale\b/F/gI; s/\bmale\b/M/gI' pandas.tsv > panda_m_f.txt
+grep -i female pandas.tsv | grep -i october | wc -l
+grep -n '' pandas.tsv > panda_names.txt
+sed -n '1p;6p;17p' pandas.tsv > lines_1_6_17.txt
+grep -i x pandas.tsv > x_lines.txt
+awk -F $'\t' 'NR>1 {print $5}' pandas.tsv | sort | uniq -c | awk '$1==1 {print $2}' > unique_places.txt
+awk -F $'\t' 'NR>1 && $4 <= 10 {print $1"\t"$4}' pandas.tsv | sort -k2,2n > young_pandas.txt
