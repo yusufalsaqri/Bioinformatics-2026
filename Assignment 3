@@ -1,5 +1,5 @@
 sed '/zoo/I d' pandas.tsv > panda_zoos.txt
-awk -F $'\t' 'BEGIN{OFS="\t"} {print $1,$2,$3}' pandas.tsv | sort -k3,3 > sorted_pandas.txt
+awk -F $'\t' 'BEGIN{OFS="\t"} NR>1 {print $1,$4,$2}' pandas.tsv | sort -t $'\t' -k2,2n > sorted_pandas.txt
 awk -F $'\t' 'NR>1 {print $5}' pandas.tsv | sort > panda_zoos_A2Z.txt
 sed -E 's/\bfemale\b/F/gI; s/\bmale\b/M/gI' pandas.tsv > panda_m_f.txt
 grep -i female pandas.tsv | grep -i october | wc -l
