@@ -1,0 +1,37 @@
+1.) makeblastdb -in database_mystery_transcripts.fasta -dbtype nucl -out mystery_transcripts_db
+
+2.) makeblastdb -in database_mystery_proteins.fasta -dbtype prot -out mystery_proteins_db
+
+3.) blastn -query query_mystery_nucleotide.fasta \
+-db mystery_transcripts_db \
+-evalue 1e-3 \
+-max_target_seqs 5 \
+-outfmt 7 \
+-out nucleotide_results.out
+
+4.) T010027234997 (91.965%)
+
+5.) awk '$3 > 90 {print $2}' nucleotide_results.out > most_similar.txt
+The sequences with greater than 90% identity were:
+T010027234997
+T010003453160
+T010027234995
+
+6.) blastp -query query_mystery_protein.fasta \
+-db mystery_proteins_db \
+-evalue 1e-5 \
+-max_target_seqs 15 \
+-outfmt 7 \
+-out protein_results.out
+
+7.) The best protein based on e-value (0.0) and highest bit score was:
+P010027090796
+
+8.) The species:
+coffee Arabica
+
+9.) The species:
+Gardenia jasminoides
+
+10.) The gene of the mystery query is:
+Catalase
