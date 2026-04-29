@@ -1,5 +1,7 @@
-MUSCLE:muscle -in bats_ace2.fasta -out bats_ace2_aligned.fasta
+MUSCLE: muscle -in bats_ace2.fasta -out bats_ace2_aligned.fasta
+
 RAxML: raxmlHPC -s bats_ace2_aligned.fasta -n bats_tree -m PROTCATDAYHOFF -p 12345 -x 12345 -# 100 -f a
-The most closesly related species is: Dobsonia_viridis, Epomophorus wahlbergi, Syconycteris austrais, Cynopterus sphinx 
-This phylogeny shows how ACE2 genes are related in different bat species. Since ACE2 is the receptor used by SARS-like viruses, 
-comparing these sequences helps identify which bats may be more likely to interact with similar viruses
+
+The most closely related species are: Dobsonia viridis, Epomophorus wahlbergi, Syconycteris australis, and Cynopterus sphinx.
+
+This phylogeny illustrates the evolutionary relationships of ACE2 genes among different bat species. Because ACE2 serves as the receptor for SARS-like viruses, comparing these sequences can help identify which bat species may be more likely to interact with similar viruses.
